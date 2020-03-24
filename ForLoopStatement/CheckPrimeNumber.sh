@@ -3,21 +3,13 @@
 # program to check if a number is prime
 read -p "Enter a number : " number
 
-counter=0
+isPrime=true
 
 for (( i=2; i<$number; i++))
 do
-
-	# If number is divisible by any number between  2 and number, it is not prime 
 	if [ $(( $number % $i )) -eq 0 ]
 	then
-		$counter++;
+		isPrime=false
 	fi
 done
-
-if [ $counter -eq 0 ]
-then
-	echo "$number is prime"
-else
-	echo "$number is not prime"
-fi
+echo $isPrime
